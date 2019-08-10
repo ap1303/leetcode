@@ -1,4 +1,4 @@
-All: LCP ATN Lls
+All: LCP ATN LLS LP
 
 LCP:
 		gcc -Wall -g -o longestCommonPrefix longestCommonPrefix.c
@@ -6,10 +6,14 @@ LCP:
 ATN:
 		gcc -Wall -g -o addTwoNumbers addTwoNumbers.c
 
-Lls:
+LLS:
 		gcc -Wall -g -o lengthOfLongestSubstring lengthOfLongestSubstring.c
+
+LP:
+		gcc -Wall -g -o longestPalindrome longestPalindrome.c
 
 clean:
 		rm -rf longestCommonPrefix
 		rm -rf addTwoNumbers
 		rm -rf lengthOfLongestSubstring
+		rm -rf longestPalindrome

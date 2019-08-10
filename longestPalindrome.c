@@ -24,9 +24,29 @@ int isPalindrome(char *s) {
 }
 
 char *longestPalindrome(char *s) {
-
+     char temp[1000];
+     int length = strlen(s);
+     int longest = 0;
+     char result[1000];
+     for(int i = 0; i < length; i++) {
+         for(int j = 1; j <= length - i; j++) {
+             strncpy(temp, s + i, j);
+             if (isPalindrome(temp)) {
+                 if (longest == 0 || j > longest) {
+                     longest = j;
+                     memset(result, 0, 1000);
+                     strcpy(result, temp);
+                 }
+             } else {
+                 memset(temp, 0, j);
+             }
+         }
+     }
+     return result;
 }
 
 int main(int argc, char **argv) {
-
+    char *longest = longestPalindrome(argv[1]);
+    printf("longest palindrome for string %s is %s", argv[1], longest);
+    return 0;
 }
