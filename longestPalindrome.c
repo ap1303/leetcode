@@ -16,6 +16,7 @@ int isPalindrome(char *s) {
         if (s[0] == s[length - 1]) {
             char copy[1000];
             strncpy(copy, s + 1, length - 2);
+            copy[length - 2] = '\0';
             return isPalindrome(copy);
         } else {
             return 0;
@@ -27,7 +28,7 @@ char *longestPalindrome(char *s) {
      char temp[1000];
      int length = strlen(s);
      int longest = 0;
-     char result[1000];
+     char *result = malloc(sizeof(char) * 1000);
      for(int i = 0; i < length; i++) {
          for(int j = 1; j <= length - i; j++) {
              strncpy(temp, s + i, j);
@@ -47,6 +48,6 @@ char *longestPalindrome(char *s) {
 
 int main(int argc, char **argv) {
     char *longest = longestPalindrome(argv[1]);
-    printf("longest palindrome for string %s is %s", argv[1], longest);
+    printf("longest palindrome for string %s is %s\n", argv[1], longest);
     return 0;
 }

@@ -1,4 +1,4 @@
-All: LCP ATN LLS LP
+All: LCP ATN LLS LP zTransform
 
 LCP:
 		gcc -Wall -g -o longestCommonPrefix longestCommonPrefix.c
@@ -12,8 +12,12 @@ LLS:
 LP:
 		gcc -Wall -g -o longestPalindrome longestPalindrome.c
 
+zTransform:
+		gcc -Wall -g -o zTransform zTransform.c
+
 clean:
 		rm -rf longestCommonPrefix
 		rm -rf addTwoNumbers
 		rm -rf lengthOfLongestSubstring
 		rm -rf longestPalindrome
+		rm -rf zTransform
